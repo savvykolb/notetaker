@@ -1,14 +1,25 @@
 {
-  "name": "note-taker",
+  "name": "homework11-express.js-notetaker",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "## Your Task",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^16.3.0"
+  },
+  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snk923/homework11-Express.js-NoteTaker.git"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.16.4"
-  }
+  "bugs": {
+    "url": "https://github.com/snk923/homework11-Express.js-NoteTaker/issues"
+  },
+  "homepage": "https://github.com/snk923/homework11-Express.js-NoteTaker#readme"
 }
