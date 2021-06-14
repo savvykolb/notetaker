@@ -22,10 +22,27 @@ module.exports = (app) => {
         res.json(notesData);
       });
 
-})};
+      
+
+})
+  app.delete("/api/notes/:id", (req, res) => {
+    const deletedUUID = req.params.id
+    for (let index = 0; index < notesData.length; index++) {
+      if (notesData[index].id === deletedUUID);
+      console.log('----------deletedUUID:', deletedUUID)
+    }
+    fs.writeFile('./db/db.json', JSON.stringify(notesData), (err) => {
+      if (err) throw err;
+      console.log('Wrote Data!!!!');
+      res.json(notesData);
+  })
+
+});
+}
 
 
-//app.delete uses UUID ${ID} to delete - see line 47 on apiRoutes
-//I need a function that loops OR map through the array until it matches a UUID to delete.
+// app.delete uses UUID ${ID} to delete - see line 47 on apiRoutes
+// I need a function that loops OR map through the array until it matches a UUID to delete.
 // Then I should be able to use same write file from app.post
-//https://expressjs.com/en/guide/routing.html
+// https://expressjs.com/en/guide/routing.html
+// Route parameters are named URL segments that are used to capture the values specified at their position in the URL. The captured values are populated in the req.params object, with the name of the route parameter specified in the path as their respective keys
