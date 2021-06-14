@@ -19,20 +19,27 @@ module.exports = (app) => {
         console.log('Wrote Data!!!!');
         res.json(notesData);
       });
+})
+
+app.delete("/api/notes/:id", (req, res) => {
+  const deletedUUID = req.params.id
+  let notesChanged = require('../db/db.json'); // needed to require here with let for changing json file
+  for (let index = 0; index < notesChanged.length; index++) {
+    if (notesChanged[index].id === deletedUUID){
+      notesChanged.splice(deletedUUID, 1)
+      //array.splice(index, howmany,
+    };
+    console.log('DELETED????', notesChanged)
+  
+  }
+  fs.writeFile('./Develop/db/db.json', JSON.stringify(notesChanged), (err) => {
+    if (err) throw err;
+    console.log('CHANGED DATA!!!!');
+    res.json(notesChanged);
+})
+
 })};
 
-//   app.delete("/api/notes/:id", (req, res) => {
-//     const deletedUUID = req.params.id
-//     console.log('req.params.id:', req.params.id)
-//     let notesChanged = require('../db/db.json'); // needed to require here with let for changing json file
-//     for (let index = 0; index < notesChanged.length; index++) {
-//       if (notesChanged[index].id === deletedUUID);
-//     }
-//     // fs.writeFile('./db/db.json', JSON.stringify(notesChanged), (err) => {
-//     //   if (err) throw err;
-//     //   console.log('Wrote Data!!!!');
-//     //   res.json(notesChanged);
-//   })
 
 // ;
 
