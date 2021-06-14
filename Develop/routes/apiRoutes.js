@@ -10,42 +10,30 @@ module.exports = (app) => {
   // API POST Requests
 
   app.post("/api/notes", (req, res) => {
-    req.body.uuidv4 = uuidv4();
-      notesData.push(req.body);
-      console.log('LOOOOOOOOOKKKKKKKKKKKKK', req.body)
-      
-      fs.writeFile('./Develop/db/db.json', JSON.stringify(notesData), (err) => {
-        if (err) throw err;
-        console.log('Wrote Data!!!!');
-        res.json(notesData);
-      });
-})
+    req.body.uuidv4 = uuidv4(); //copied from UUID documentation
+    notesData.push(req.body);
+    console.log('LOOOOOOOOOKKKKKKKKKKKKK', req.body)
 
-app.delete("/api/notes/:id", (req, res) => {
-  const deletedUUID = req.params.id
-  let notesChanged = require('../db/db.json'); // needed to require here with let for changing json file
-  for (let index = 0; index < notesChanged.length; index++) {
-    if (notesChanged[index].id === deletedUUID){
-      notesChanged.splice(deletedUUID, 1)
-      //array.splice(index, howmany,
-    };
-    console.log('DELETED????', notesChanged)
-  
-  }
-  fs.writeFile('./Develop/db/db.json', JSON.stringify(notesChanged), (err) => {
-    if (err) throw err;
-    console.log('CHANGED DATA!!!!');
-    res.json(notesChanged);
-})
+    fs.writeFile('./Develop/db/db.json', JSON.stringify(notesData), (err) => {
+      if (err) throw err;
+      console.log('Wrote Data!!!!');
+      res.json(notesData);
+    });
+  })
 
-})};
+  app.delete("/api/notes/:id", (req, res) => {
+    console.log('notesData BEFORE:', notesData)
+    notesData.splice({ id: req.params.id }, 1); //I am still unsure about this - found on google and tried it cause my loop was not working
+    fs.writeFile('./Develop/db/db.json', JSON.stringify(notesData), (err) => {
+      if (err) throw err;
+      console.log('CHANGED DATA!!!!');
+      res.json(notesData);
+      console.log('notesData AFTER:', notesData)
+    });
+  })
+
+};
 
 
-// ;
-
-
-// app.delete uses UUID ${ID} to delete - see line 47 on apiRoutes
-// I need a function that loops OR map through the array until it matches a UUID to delete.
-// Then I should be able to use same write file from app.post
 // https://expressjs.com/en/guide/routing.html
 // Route parameters are named URL segments that are used to capture the values specified at their position in the URL. The captured values are populated in the req.params object, with the name of the route parameter specified in the path as their respective keys
