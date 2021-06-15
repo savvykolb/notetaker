@@ -7,6 +7,7 @@ const { v4: uuidv4 } = require('uuid');
 
 module.exports = (app) => {
   app.get("/api/notes", (req, res) => res.json(notesData));
+
   // API POST Requests
 
   app.post("/api/notes", (req, res) => {
@@ -23,7 +24,8 @@ module.exports = (app) => {
 
   app.delete("/api/notes/:id", (req, res) => {
     console.log('notesData BEFORE:', notesData)
-    notesData.splice({ id: req.params.id }, 1); //I am still unsure about this - found on google and tried it cause my loop was not working
+    // splice(start, deleteCount)
+    notesData.splice({ id: req.params.id  }, 1); 
     fs.writeFile('./Develop/db/db.json', JSON.stringify(notesData), (err) => {
       if (err) throw err;
       console.log('CHANGED DATA!!!!');
@@ -33,6 +35,11 @@ module.exports = (app) => {
   })
 
 };
+
+// Request : From Client to Server
+// Response: From Server to Client
+// Server: Receive Request and Send Response
+// Client: Send Request and Receive Response
 
 
 // https://expressjs.com/en/guide/routing.html
