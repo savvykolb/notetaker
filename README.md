@@ -8,7 +8,7 @@
 
 ## Project Description:
 
-An application called Note Taker that can be used to write, save, and delete notes. This application uses an Express.js back end and saves and retrieves note data from a JSON file. Users are also able to delete notes as they need as well!
+An application called Note Taker that can be used to write, save, and delete notes. This application uses an Express.js back end and saves and retrieves note data from a JSON file. 
 
 ## Table of Contents
 
