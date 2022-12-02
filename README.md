@@ -1,37 +1,42 @@
-# homework11-Express.js-NoteTaker
+# NoteTaker
 
 ![MIT](https://img.shields.io/badge/license-MIT-brightgreen)
-#### https://skolb-note-taker.herokuapp.com/notes
-#### https://github.com/snk923/homework11-Express.js-NoteTaker
+
+#### https://notetaker.onrender.com/
+
+#### https://github.com/savvykolb/notetaker
 
 ## Project Description:
+
 An application called Note Taker that can be used to write, save, and delete notes. This application uses an Express.js back end and saves and retrieves note data from a JSON file. Users are also able to delete notes as they need as well!
 
 ## Table of Contents
-* [Installation](#installation)
-* [Usage](#usage)
-* [Contributors](#contributors)
-* [Test](#test)
-* [Questions](#questions)
-* [License](#license)
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Test](#test)
+- [Questions](#questions)
+- [License](#license)
 
 ## Installation
-You will need to ensure that you have node.js installed on your device. 
+
+You will need to ensure that you have node.js installed on your device.
 
 ## Usage
-Follow the promps as you enter the web page. If you wish to fork and utilize this code for yourself, you will need to have node.js downloaded. 
 
-## Contributors
- UNCG Full Stack Bootcamp provided starter code for the front end of this application. If there is anything users feel would be beneficial to add, please reach out or submit a git merge request.  
+Follow the promps as you enter the web page. If you wish to fork and utilize this code for yourself, you will need to have node.js downloaded.
 
 ## Test
-Currently, no tests at this time. 
+
+Currently, no tests at this time.
 
 ## Questions
+
 If you have questions about this application please email: Savannahnkolb@gmail.com
-Or visit my Github profile: https://github.com/snk923
+Or visit my Github profile: https://github.com/savvykolb
 
 ## License
+
     MIT Copyright (c) 2021 Savannah Kolb
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
